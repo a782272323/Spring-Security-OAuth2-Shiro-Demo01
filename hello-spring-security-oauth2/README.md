@@ -1,0 +1,3 @@
+学习spring security oauth2 ，基于千峰教育的
+有缺陷和bug，总的来讲不完善。但可以用来做一个spring security oauth2连接数据库
+也就是说基于JDBC令牌但权限认证但参考
