@@ -1,11 +1,15 @@
 package learn.lhb.security.springmvc.config;
 
+import learn.lhb.security.springmvc.interceptor.SimpleAuthenticationInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -25,6 +29,9 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 public class WebConfig implements WebMvcConfigurer {
     // todo WebMvcConfigurer 做个笔记
 
+    @Autowired
+    private SimpleAuthenticationInterceptor simpleAuthenticationInterceptor;
+
     // 配置视图解析器
     @Bean
     public InternalResourceViewResolver viewResolver() {
@@ -35,5 +42,24 @@ public class WebConfig implements WebMvcConfigurer {
         // 页面后缀
         viewResolver.setSuffix(".jsp");
         return viewResolver;
+    }
+
+    /**
+     * 把页面指向login.jsp
+     * @param registry
+     */
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("login");
+    }
+
+    /**
+     * 配置拦截器，匹配/r/** 的资源为受保护的系统资源，访问该资源的请求
+     * 要进入到SimpleAuthenticationInterceptor拦截器中进行拦截
+     * @param registry
+     */
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(simpleAuthenticationInterceptor);
     }
 }
