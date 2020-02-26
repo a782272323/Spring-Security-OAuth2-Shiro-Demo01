@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: security-springboot
+  # 视图解析器前后缀配置
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  # 配置数据源
+  datasource:
+    url: jdbc:mysql://localhost:3306/security_user_db01?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+
+server:
+  port: 8080
+  servlet:
+    context-path: /security-springboot # 项目访问的上下文路径
+
+

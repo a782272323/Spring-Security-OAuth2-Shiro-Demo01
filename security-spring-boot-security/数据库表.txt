@@ -1,0 +1,48 @@
+数据库名字自定义，我这里采用 security_user_db01
+
+t_user 用户表建表语句
+CREATE TABLE `t_user`.`无标题`  (
+  `id` bigint(20) NOT NULL COMMENT '用户id',
+  `username` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户登录名',
+  `password` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '密码',
+  `fullname` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户姓名',
+  `mobile` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '手机号',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+t_role 角色表建表语句
+CREATE TABLE `t_role` (
+    `id` varchar(32) NOT NULL COMMENT '角色id',
+    `role_name` varchar(255) DEFAULT NULL COMMENT '角色名',
+    `description` varchar(255) DEFAULT NULL COMMENT '描述',
+    `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+    `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+    `status` char(1) NOT NULL COMMENT '状态',
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `unique_role_name` (`role_name`)
+   )    ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+t_user_role 用户角色关系表
+CREATE TABLE `t_user_role`  (
+    `user_id` varchar(32) NOT NULL COMMENT '用户id',
+    `role_id` varchar(32) NOT NULL COMMENT '角色id',
+    `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+    `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+    PRIMARY KEY (`user_id`,`role_id`)
+   )    ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+t_permission 权限表
+CREATE TABLE `t_permission` (
+    `id` varchar(32) NOT NULL COMMENT '权限id',
+    `code` varchar(32) NOT NULL COMMENT '权限标识符',
+    `description` varchar(54) DEFAULT NULL COMMENT '描述',
+    `url` varchar(128) DEFAULT NULL COMMENT '请求地址',
+    PRIMARY KEY (`id`)
+   )    ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+t_role_permission 角色权限表
+CREATE TABLE `t_role_permission`    (
+    `role_id` varchar(32) NOT NULL COMMENT '角色id',
+    `permission_id` varchar(32) NOT NULL COMMENT '权限id',
+    PRIMARY KEY (`role_id`,`permission_id`)
+   )        ENGINE=InnoDB DEFAULT CHARSET=utf8
