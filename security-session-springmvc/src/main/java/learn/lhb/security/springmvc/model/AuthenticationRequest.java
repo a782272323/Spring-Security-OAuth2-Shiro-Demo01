@@ -1,6 +1,7 @@
 package learn.lhb.security.springmvc.model;
 
 /**
+ *
  * @author 梁鸿斌
  * @date 2020/2/26.
  * @time 09:33

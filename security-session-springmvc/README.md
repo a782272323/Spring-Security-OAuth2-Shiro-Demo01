@@ -1,2 +1,4 @@
 基于session的简单认证框架
 SpringMVC框架
+
+修复了无法用maven启动tomcat的bug

@@ -4,6 +4,7 @@ import learn.lhb.security.springmvc.model.AuthenticationRequest;
 import learn.lhb.security.springmvc.model.UserDto;
 
 /**
+ *
  * 认证服务
  * @author 梁鸿斌
  * @date 2020/2/26.

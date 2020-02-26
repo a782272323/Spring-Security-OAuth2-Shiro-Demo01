@@ -5,6 +5,7 @@ import java.util.Set;
 /**
  * 用户身份信息 实体类
  *
+ *
  * @author 梁鸿斌
  * @date 2020/2/26.
  * @time 09:34

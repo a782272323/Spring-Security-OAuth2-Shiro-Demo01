@@ -18,6 +18,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
  * 本案例采用Servlet3.0无web.xml方式，的config包下定义WebConfig.java，它对应s对应于DispatcherServlet配 置。
  * 配置视图解析器
  *
+ *
  * @author 梁鸿斌
  * @date 2020/2/26.
  * @time 01:58

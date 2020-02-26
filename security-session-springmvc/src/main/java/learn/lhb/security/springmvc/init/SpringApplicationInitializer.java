@@ -11,6 +11,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  * 此类实现WebApplicationInitializer接口，
  * Spring容器启动时加载WebApplicationInitializer接口的所有实现类。
  *
+ *
  * @author 梁鸿斌
  * @date 2020/2/26.
  * @time 02:06

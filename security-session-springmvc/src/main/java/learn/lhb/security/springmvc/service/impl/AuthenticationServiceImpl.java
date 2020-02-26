@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ *
  * 用户认证接口实现类
  * @author 梁鸿斌
  * @date 2020/2/26.

@@ -24,6 +24,7 @@ public class SimpleAuthenticationInterceptor implements HandlerInterceptor {
     /**
      * 请求拦截方法(在调用所以controller方法之前来调用这个方法)
      *
+     *
      * @param request
      * @param response
      * @param handler
