@@ -1,0 +1,43 @@
+spring:
+  # 数据库连接池
+  datasource:
+    url: jdbc:mysql://localhost:3306/security_user_db01?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  # 允许 Bean进行覆盖
+  main:
+    allow-bean-definition-overriding: true
+  http:
+    encoding:
+      enabled: true
+      charset: utf-8
+      force: true
+  resources:
+    add-mappings: false
+
+
+
+server:
+  port: 7007
+  servlet:
+    context-path: /permission
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: learn.lhb.security.oauth2.sso.vue.demo01.permission.entity
+
+
+#logging:
+#  level:
+#    root: debug
+#    org:
+#      springframework:
+#        web: info
+
+
+logging:
+  config=src/main/resources/log4j:
+    properties:
+  level:
+    learn.lhb.security.oauth2.sso.vue.demo01.permission.dao: debug
